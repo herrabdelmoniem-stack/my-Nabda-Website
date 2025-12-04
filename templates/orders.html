@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}طلباتي السابقة{% endblock %}
+{% block content %}
+<h2>طلباتي السابقة</h2>
+
+<ul>
+    {% for order in orders %}
+    <li>منتج رقم {{ order.product_id }} - الكمية: {{ order.quantity }} - الحالة: {{ order.status }}</li>
+    {% endfor %}
+</ul>
+
+{% if not orders %}
+    <p>لا يوجد طلبات سابقة.</p>
+{% endif %}
+{% endblock %}

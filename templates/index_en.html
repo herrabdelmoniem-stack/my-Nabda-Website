@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Nabda - Home{% endblock %}
+{% block content %}
+<h1>Welcome to Nabda!</h1>
+<h2>Our Product: Nabta Kit</h2>
+<img src="{{ url_for('static', filename='images/kit.jpg') }}" width="300">
+<p>An educational kit that helps children learn through play.</p>
+<p>Price: {{ product.price }} EGP</p>
+
+{% if current_user.is_authenticated %}
+    <a href="{{ url_for('add_to_cart', product_id=product.id) }}">Add to Cart</a>
+{% else %}
+    <p><a href="{{ url_for('login') }}">Log in</a> to purchase.</p>
+{% endif %}
+{% endblock %}

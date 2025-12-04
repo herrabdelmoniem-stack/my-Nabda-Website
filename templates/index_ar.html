@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <title>نبتة - كيت التجارب التعليمية | 3 مغامرات علمية في كيت واحد</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="نبتة، كيت تجارب علمية، زراعة نباتات، تجربة تنفس النبات، دائرة كهربائية حساسة للضوء، تعليم الأطفال" name="keywords">
+    <meta content="كيت نبتة التعليمي! 3 تجارب علمية مسلية ومبسطة للأطفال: زراعة، علوم، كهرباء. ابنك هيحب العلوم معانا!" name="description">
+
+    <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='lib/animate/animate.min.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <style>
+        /* 🎨 الألوان الجديدة: الأصفر (#F1C43C)، الأبيض (#FFFFFF) */
+        :root {
+            --primary: #F1C43C;
+            --light: #FFFFFF;
+            --dark: #181d38;
+        }
+
+        /* تعديل اللون الأساسي للعناصر التي تعتمد على كلاسات وليس متغيرات CSS */
+        .text-primary,
+        .section-title::before,
+        .btn-link,
+        #spinner .spinner-border {
+            color: var(--primary) !important;
+        }
+
+        .btn-primary,
+        .bg-primary {
+            background-color: var(--primary) !important;
+            border-color: var(--primary) !important;
+            color: var(--dark) !important; /* لون النص الداكن فوق الخلفية الصفراء */
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: #FFFFFF !important; /* لون الخلفية أبيض عند التمرير */
+            border-color: #181d38 !important; /* إطار داكن */
+            color: var(--dark) !important;
+        }
+
+        /* ضبط اتجاه RTL والتنسيق العربي */
+        body {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .navbar-nav .nav-link {
+            text-align: right;
+        }
+
+        .navbar-nav {
+            margin-right: auto !important; /* لدفع العناصر لليسار في RTL */
+            margin-left: 0 !important;
+        }
+
+        .dropdown-menu {
+            text-align: right;
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+             padding-left: 1rem;
+             padding-right: 1rem;
+        }
+
+        .navbar .btn {
+            padding-right: 15px !important;
+            padding-left: 15px !important;
+            margin-right: 0 !important;
+            border-radius: 0;
+        }
+
+        .navbar .navbar-brand {
+             margin-left: 0 !important;
+             margin-right: auto !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+         <a href="{{ url_for('index_ar') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <img src="{{ url_for('static', filename='img/Logo.jpg') }}" alt="شعار نبتة" style="height: 75px; margin-left: 10px;">
+    </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="{{ url_for('index_ar') }}" class="nav-item nav-link active">الرئيسية</a>
+                <a href="#about" class="nav-item nav-link">محتوى الكيت</a>
+                <a href="#order-form" class="nav-item nav-link">اطلب دلوقتي</a>
+                <a href="#contact-section" class="nav-item nav-link">تواصل معانا</a>
+            </div>
+            <a href="#order-form" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">اطلب دلوقتي<i class="fa fa-arrow-left me-3"></i></a>
+        </div>
+    </nav>
+    <div class="container-fluid p-0 mb-5">
+        <div class="header-banner position-relative">
+            <img class="img-fluid w-100" src="{{ url_for('static', filename='img/bg.jpg') }}" alt="كيت نبتة التعليمي" style="height: 800px; object-fit: cover;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, 0.3);">
+                <div class="container">
+                    <div class="row justify-content-end">
+                        <div class="col-sm-10 col-lg-8 text-end">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">كيت التجارب العلمية للأطفال 8+</h5>
+                            <h1 class="display-3 text-white animated slideInDown">تجربة هتخلي ابنك يعشق العلوم والاكتشاف !</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">كيت "نبتة" بتحوّل الدراسة ل لعب عملي وممتع. اكتشفوا تجربة الزراعة، تنفس النبات، ودائرة الإضاءة الحساسة في كيت واحد.</p>
+                            <a href="#order-form" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">اطلب دلوقتي</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-xxl py-5" id="about">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">محتوى الكيت</h6>
+                <h1 class="mb-5">3 تجارب علمية مسلية في علبة واحدة!</h1>
+            </div>
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <img class="img-fluid mb-4" src="{{ url_for('static', filename='img/a.jpg') }}" alt="أدوات الزراعة" style="height: 200px; object-fit: contain;">
+                            <h5 class="mb-3">1. مغامرة الزراعة ونشوف النبتة بتكبر</h5>
+                            <p>هتلاقي أدوات زراعة لـ 3 أنواع بذور، بتربة عضوية وأصص صغيرة، عشان ابنك يتعلم خطوات النمو من البداية.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <img class="img-fluid mb-4" src="{{ url_for('static', filename='img/c.jpg') }}" alt="ورقة تجربة تنفس النبات" style="height: 200px; object-fit: contain;">
+                            <h5 class="mb-3">2. إزاي النبتة بتتنفس؟ (تجربة الكيمياء)</h5>
+                            <p>تجربة مثيرة بمواد آمنة بتوضّح بالعين إزاي النبتة بتتفاعل مع البيئة وبتستهلك ثاني أكسيد الكربون. الشرح المفصّل مرفق.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <img class="img-fluid mb-4" src="{{ url_for('static', filename='img/b.jpg') }}" alt="أدوات الدائرة الكهربائية" style="height: 200px; object-fit: contain;">
+                            <h5 class="mb-3">3. دائرة عيون النبات (تجربة الكهرباء)</h5>
+                            <p>تجميع دايرة كهربا بسيطة بتستخدم حساس ضوئي عشان ابنك يعرف علاقة الضوء بحياة النبات. هتلاقي كل أدوات توصيل لمبة LED.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="img-fluid position-absolute w-100 h-100" src="{{ url_for('static', filename='img/2.jpg') }}" alt="محتويات كيت نبتة" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="section-title bg-white text-start text-primary pe-3">ليه نَبْتَة بالذات؟</h6>
+                    <h1 class="mb-4">علبة واحدة، بتدي خبرة في 3 فروع علوم.</h1>
+                    <p class="mb-4">كيت نبتة متصمم عشان يخلي ابنك يطبّق اللي بيتعلمه بإيده. بنقدم له أساسيات علوم حقيقية بثلاث طرق مختلفة ومسلية.</p>
+                    <p class="mb-4">كل الأدوات اللي في الكيت **آمنة** وكمان معاها **شروحات واضحة**، عشان يقدر يعمل التجارب لوحده ويحوّل النظريات لحاجة يشوفها بعينه.</p>
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>تعليم عملي وتطبيقي</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>بتقوّي مهارات التفكير العلمي</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>أدوات آمنة ومناسبة لسن +8</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>شروحات مبسطة وواضحة جداً</p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="#order-form">اشتري دلوقتي</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-xxl py-5" id="order-form">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">الخطوة الأخيرة</h6>
+                <h1 class="mb-5">اطلب كيت نبتة دلوقتي!</h1>
+            </div>
+            <div class="row g-5 justify-content-center">
+
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="اسمك الكريم">
+                                    <label for="name">الاسم كاملاً</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="بريدك الإلكتروني">
+                                    <label for="email">البريد الإلكتروني</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="رقم الهاتف">
+                                    <label for="subject">رقم الموبايل للتواصل</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="اكتب عنوان التوصيل بالتفصيل" id="message" style="height: 150px"></textarea>
+                                    <label for="message">العنوان بالتفصيل وأي ملاحظات تانية</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" onclick="sendWhatsApp()">تأكيد الطلب والدفع عند الاستلام</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s">
+                    <div class="product-media position-relative">
+
+                        <div class="item position-relative d-block h-100 overflow-hidden" style="min-height: 350px;">
+                           <iframe
+    src="https://www.youtube.com/embed/8Z8h4_NgEMU?si=tXD8z92d7VDvuATZ"
+    width="100%"
+    height="400"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+</iframe>
+                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px; width: calc(100% - 2px);">
+                                <h5 class="m-0 text-dark">شاهد ملخص التجارب!</h5>
+                            </div>
+                        </div>
+                        </div>
+                    <div class="bg-white text-center py-3 px-3 mt-3 shadow-sm border border-dark">
+                        <h5 class="m-0 text-primary">سعر الكيت: 420 EGP</h5>
+                        <small class="text-secondary">شامل التوصيل في بعض الأماكن</small>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">روابط سريعة</h4>
+                    <a class="btn btn-link" href="#about">محتوى الكيت</a>
+                    <a class="btn btn-link" href="#order-form">اطلب دلوقتي</a>
+                    <a class="btn btn-link" href="#">سياسة الخصوصية</a>
+                    <a class="btn btn-link" href="#">الشروط والأحكام</a>
+                    <a class="btn btn-link" href="#">أسئلة وأجوبة</a>
+                </div>
+                <div class="col-lg-3 col-md-6" id="contact-section">
+                    <h4 class="text-white mb-3">تواصل</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt ms-3"></i>عنوانك هنا</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt ms-3"></i>+01020366749</p>
+                    <p class="mb-2"><i class="fa fa-envelope ms-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">معرض الكيت</h4>
+                    <div class="row g-2 pt-2">
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="{{ url_for('static', filename='img/1.jpg') }}" alt="صورة الكيت">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="{{ url_for('static', filename='img/2.jpg') }}"alt="محتويات الكيت">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="{{ url_for('static', filename='img/3.jpg') }}" alt="أدوات الزراعة">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="{{ url_for('static', filename='img/5.jpg') }}" alt="أدوات الكهرباء">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="{{ url_for('static', filename='img/6.jpg') }}"alt="تجربة التنفس">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="{{ url_for('static', filename='img/7.jpg') }}" alt="شروحات التجارب">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">القائمة البريدية</h4>
+                    <p>اشترك عشان يوصلك جديدنا وعروضنا.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="بريدك الإلكتروني">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">اشترك</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">نبتة - نبض المعرفة</a>, جميع الحقوق محفوظة.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="{{ url_for('index_ar') }}">الرئيسية</a>
+                            <a href="">مساعدة</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+<!-- زر واتساب عائم -->
+<a href="https://wa.me/201234567890"
+   class="whatsapp-float"
+   target="_blank"
+   title="تواصل معنا على واتساب">
+   <i class="fab fa-whatsapp"></i>
+</a>
+
+<style>
+/* تصميم الزر */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25D366, #5EF68A);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* عند المرور عليه */
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+/* تأثير نبض خفيف */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* للموبايل */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 15px;
+        left: 15px;
+        width: 55px;
+        height: 55px;
+        font-size: 26px;
+    }
+}
+</style>
+
+
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='lib/wow/wow.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>
+function sendWhatsApp() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("subject").value;
+    const address = document.getElementById("message").value;
+
+    const message = `طلب جديد من ${name}%0A📧 الإيميل: ${email}%0A📞 الهاتف: ${phone}%0A📦 العنوان: ${address}`;
+    const whatsappNumber = "201234567890"; // ← رقمك هنا بدون +
+    const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+    window.open(url, "_blank");
+}
+</script>
+
+
+</body>
+
+</html>

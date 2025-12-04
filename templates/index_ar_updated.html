@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+{% block title %}نبتة - الصفحة الرئيسية{% endblock %}
+
+{% block content %}
+<!-- ========== قسم الهيدر موجود بالفعل في ملفك الحالي ========== -->
+
+<!-- قسم الفيديو الجديد -->
+<div class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title text-center text-primary px-3">شاهد التجارب بنفسك</h2>
+        <p class="mb-3">هذا الفيديو يشرح طريقة استخدام صندوق نبتة ومحتوياته بالتفصيل</p>
+    </div>
+    <div class="ratio ratio-16x9">
+        <video controls poster="{{ url_for('static', filename='img/1.jpg') }}">
+            <source src="{{ url_for('static', filename='videos/N2--Final_Output.mp4') }}" type="video/mp4">
+            متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+    </div>
+</div>
+
+<!-- يمكنك هنا تضمين باقي الأقسام مثل مميزات المنتج / الطلب الآن / آراء العملاء / ... -->
+
+{% endblock %}

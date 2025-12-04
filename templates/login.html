@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}تسجيل الدخول{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="mb-4">تسجيل الدخول</h2>
+        <form method="post">
+            <div class="mb-3">
+                <label for="email" class="form-label">البريد الإلكتروني</label>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">كلمة المرور</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">دخول</button>
+        </form>
+
+        <hr>
+        <p>أو سجل باستخدام:</p>
+        <a href="{{ url_for('google.login') }}" class="btn btn-outline-danger me-2">Google</a>
+
+        <p class="mt-3">ما عندكش حساب؟ <a href="{{ url_for('register') }}">سجّل من هنا</a></p>
+    </div>
+</div>
+{% endblock %}
